@@ -6,6 +6,9 @@ import os
 app = Flask(__name__, static_folder='.', static_url_path='')
 CORS(app)  # Enable CORS for frontend requests
 
+# For Vercel deployment - check if running on Vercel
+IS_VERCEL = os.getenv('VERCEL', '0') == '1'
+
 # OpenRouter API configuration
 OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY', '')
 OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions'
